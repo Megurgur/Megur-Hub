@@ -64,7 +64,7 @@ function Iris.Init(parentInstance: BasePlayerGui?, eventConnection: (RBXScriptSi
 
     if parentInstance == nil then
         -- coalesce to playerGui
-        parentInstance = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+        parentInstance = game.CoreGui
     end
     if eventConnection == nil then
         -- coalesce to Heartbeat
