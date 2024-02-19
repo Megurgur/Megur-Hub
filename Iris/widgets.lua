@@ -1,4 +1,9 @@
-local Types = require(script.Parent.Types)
+local require;
+require = function(path)
+    return loadstring(game:HttpGet("https://github.com/Megurgur/Megur-Hub/raw/main/Iris/" .. path .. ".lua"))()
+end
+
+local Types = require("Types")
 
 local widgets = {} :: Types.WidgetUtility
 
@@ -514,22 +519,22 @@ return function(Iris: Types.Internal)
 
     Iris._utility = widgets
 
-    require(script.Root)(Iris, widgets)
-    require(script.Window)(Iris, widgets)
+    require("Widgets/Root")(Iris, widgets)
+    require("Widgets/Window")(Iris, widgets)
 
-    require(script.Menu)(Iris, widgets)
+    require("Widgets/Menu")(Iris, widgets)
 
-    require(script.Format)(Iris, widgets)
+    require("Widgets/Format")(Iris, widgets)
 
-    require(script.Text)(Iris, widgets)
-    require(script.Button)(Iris, widgets)
-    require(script.Checkbox)(Iris, widgets)
-    require(script.RadioButton)(Iris, widgets)
+    require("Widgets/Text")(Iris, widgets)
+    require("Widgets/Button")(Iris, widgets)
+    require("Widgets/Checkbox")(Iris, widgets)
+    require("Widgets/RadioButton")(Iris, widgets)
 
-    require(script.Tree)(Iris, widgets)
+    require("Widgets/Tree")(Iris, widgets)
 
-    require(script.Input)(Iris, widgets)
-    require(script.Combo)(Iris, widgets)
+    require("Widgets/Input")(Iris, widgets)
+    require("Widgets/Combo")(Iris, widgets)
 
-    require(script.Table)(Iris, widgets)
+    require("Widgets/Table")(Iris, widgets)
 end
