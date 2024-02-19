@@ -1,4 +1,9 @@
-local Types = require(script.Parent.Parent.Types)
+local require;
+require = function(path)
+    return loadstring(game:HttpGet("https://github.com/Megurgur/Megur-Hub/raw/main/Iris/" .. path .. ".lua"))()
+end
+
+local Types = require("Types")
 
 return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
     --stylua: ignore
