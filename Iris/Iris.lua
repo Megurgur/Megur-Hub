@@ -1,5 +1,11 @@
 --!optimize 2
-local Types = require(script.Types)
+
+local require;
+require = function(path)
+    return loadstring(game:HttpGet("https://github.com/Megurgur/Megur-Hub/raw/main/Iris/" .. path .. ".lua"))()
+end
+
+local Types = require("Types")
 
 --[=[
     @class Iris
@@ -9,7 +15,7 @@ local Types = require(script.Types)
 ]=]
 local Iris = {} :: Types.Iris
 
-local Internal: Types.Internal = require(script.Internal)(Iris)
+local Internal: Types.Internal = require("Internal")(Iris)
 
 --[=[
     @prop Disabled boolean
@@ -267,7 +273,7 @@ end
 
     TemplateConfig provides a table of default styles and configurations which you may apply to your UI.
 ]=]
-Iris.TemplateConfig = require(script.config)
+Iris.TemplateConfig = require("config")
 Iris.UpdateGlobalConfig(Iris.TemplateConfig.colorDark) -- use colorDark and sizeDefault themes by default
 Iris.UpdateGlobalConfig(Iris.TemplateConfig.sizeDefault)
 Iris.UpdateGlobalConfig(Iris.TemplateConfig.utilityDefault)
@@ -449,9 +455,9 @@ end
     Iris:Connect(Iris.ShowDemoWindow)
     ```
 ]=]
-Iris.ShowDemoWindow = require(script.demoWindow)(Iris)
+Iris.ShowDemoWindow = require("demoWindow")(Iris)
 
-require(script.widgets)(Internal)
-require(script.API)(Iris)
+require("widgets")(Internal)
+require("API")(Iris)
 
 return Iris
