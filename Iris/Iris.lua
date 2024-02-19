@@ -1,8 +1,7 @@
 --!optimize 2
 
-local require;
-require = function(path)
-    return loadstring(game:HttpGet("https://github.com/Megurgur/Megur-Hub/raw/main/Iris/" .. path .. ".lua"))()
+local require; require = function(path)
+    return loadstring(game:HttpGet("https://raw.githubusercontent.com/Megurgur/Megur-Hub/main/Iris/" .. path .. ".lua"))()
 end
 
 local Types = require("Types")
