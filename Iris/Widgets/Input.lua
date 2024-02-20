@@ -1430,7 +1430,7 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
                 if (key.KeyCode == Enum.KeyCode.Backspace) then
                     key = nil
                 end
-                thisWidget.state.key:set(key and key.KeyCode or nil)
+                thisWidget.state.key:set(key == nil and nil or key.KeyCode)
             end)
 
             local frameHeight: number = Iris._config.TextSize + Iris._config.FramePadding.Y * 2
