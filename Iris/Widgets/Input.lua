@@ -1428,7 +1428,6 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
                 task.wait()
                 local key = game:GetService("UserInputService").InputEnded:Wait()
                 thisWidget.state.key:set(key)
-                thisWidget.lastTextchangeTick = Iris._cycleTick + 1
             end)
 
             local frameHeight: number = Iris._config.TextSize + Iris._config.FramePadding.Y * 2
@@ -1451,7 +1450,7 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
         Update = function(thisWidget: Types.Widget)
             local InputKeyCode = thisWidget.Instance :: Frame
             local TextLabel: TextLabel = InputKeyCode.TextLabel
-            local InputField: TextBox = InputKeyCode.InputField
+            local InputField: TextButton = InputKeyCode.InputField
 
             TextLabel.Text = thisWidget.arguments.Text or "Input Text"
         end,
