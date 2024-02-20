@@ -435,6 +435,7 @@ return function(Iris: Types.Iris)
         ```
     ]=]
     Iris.InputText = wrapper("InputText")
+    Iris.InputKeyCode = wrapper("InputKeyCode")
 
     --[[
         ----------------------------------
