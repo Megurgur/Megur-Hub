@@ -1468,7 +1468,7 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
             local InputKeyCode = thisWidget.Instance :: Frame
             local InputField: TextButton = InputKeyCode.InputField
 
-            InputField.Text = thisWidget.state.key.value
+            InputField.Text = tostring(thisWidget.state.key.value) or ""
         end,
     } :: Types.WidgetClass)
 end
