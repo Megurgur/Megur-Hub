@@ -1413,7 +1413,6 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
             InputField.BackgroundTransparency = Iris._config.FrameBgTransparency
             InputField.Text = ""
             InputField.TextTruncate = Enum.TextTruncate.AtEnd
-            InputField.ClearTextOnFocus = false
             InputField.ZIndex = thisWidget.ZIndex + 1
             InputField.LayoutOrder = thisWidget.ZIndex + 1
             InputField.ClipsDescendants = true
