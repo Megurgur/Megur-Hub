@@ -1427,6 +1427,7 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
             InputField.MouseButton1Click:Connect(function()
                 task.wait()
                 local key = game:GetService("UserInputService").InputEnded:Wait()
+                key = key.KeyCode
                 thisWidget.state.key:set(key)
             end)
 
