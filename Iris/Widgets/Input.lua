@@ -1382,4 +1382,94 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
             InputField.Text = thisWidget.state.text.value
         end,
     } :: Types.WidgetClass)
+        
+    Iris.WidgetConstructor("InputKeyCode", {
+        hasState = true,
+        hasChildren = false,
+        Args = {
+            ["Text"] = 1,
+        },
+        Events = {
+            ["hovered"] = widgets.EVENTS.hover(function(thisWidget: Types.Widget)
+                return thisWidget.Instance
+            end)
+        },
+        Generate = function(thisWidget: Types.Widget)
+            local InputKeyCode: Frame = Instance.new("Frame")
+            InputKeyCode.Name = "Iris_InputKeyCode"
+            InputKeyCode.Size = UDim2.new(Iris._config.ContentWidth, UDim.new(0, 0))
+            InputKeyCode.BackgroundTransparency = 1
+            InputKeyCode.BorderSizePixel = 0
+            InputKeyCode.ZIndex = thisWidget.ZIndex
+            InputKeyCode.LayoutOrder = thisWidget.ZIndex
+            InputKeyCode.AutomaticSize = Enum.AutomaticSize.Y
+            widgets.UIListLayout(InputKeyCode, Enum.FillDirection.Horizontal, UDim.new(0, Iris._config.ItemInnerSpacing.X))
+
+            local InputField: TextButton = Instance.new("TextButton")
+            InputField.Name = "InputField"
+            InputField.Size = UDim2.new(1, 0, 0, 0)
+            InputField.AutomaticSize = Enum.AutomaticSize.Y
+            InputField.BackgroundColor3 = Iris._config.FrameBgColor
+            InputField.BackgroundTransparency = Iris._config.FrameBgTransparency
+            InputField.Text = ""
+            InputField.TextTruncate = Enum.TextTruncate.AtEnd
+            InputField.ClearTextOnFocus = false
+            InputField.ZIndex = thisWidget.ZIndex + 1
+            InputField.LayoutOrder = thisWidget.ZIndex + 1
+            InputField.ClipsDescendants = true
+
+            widgets.applyFrameStyle(InputField)
+            widgets.applyTextStyle(InputField)
+            widgets.UISizeConstraint(InputField, Vector2.new(1, 0)) -- prevents sizes beaking when getting too small.
+            -- InputField.UIPadding.PaddingLeft = UDim.new(0, Iris._config.ItemInnerSpacing.X)
+            -- InputField.UIPadding.PaddingRight = UDim.new(0, 0)
+            InputField.Parent = InputKeyCode
+
+            InputField.MouseButton1Click:Connect(function()
+                task.wait()
+                local key = game:GetService("UserInputService").InputEnded:Wait()
+                thisWidget.state.key:set(key)
+                thisWidget.lastTextchangeTick = Iris._cycleTick + 1
+            end)
+
+            local frameHeight: number = Iris._config.TextSize + Iris._config.FramePadding.Y * 2
+
+            local TextLabel: TextLabel = Instance.new("TextLabel")
+            TextLabel.Name = "TextLabel"
+            TextLabel.Size = UDim2.fromOffset(0, frameHeight)
+            TextLabel.AutomaticSize = Enum.AutomaticSize.X
+            TextLabel.BackgroundTransparency = 1
+            TextLabel.BorderSizePixel = 0
+            TextLabel.ZIndex = thisWidget.ZIndex + 4
+            TextLabel.LayoutOrder = thisWidget.ZIndex + 4
+
+            widgets.applyTextStyle(TextLabel)
+
+            TextLabel.Parent = InputKeyCode
+
+            return InputKeyCode
+        end,
+        Update = function(thisWidget: Types.Widget)
+            local InputKeyCode = thisWidget.Instance :: Frame
+            local TextLabel: TextLabel = InputKeyCode.TextLabel
+            local InputField: TextBox = InputKeyCode.InputField
+
+            TextLabel.Text = thisWidget.arguments.Text or "Input Text"
+        end,
+        Discard = function(thisWidget: Types.Widget)
+            thisWidget.Instance:Destroy()
+            widgets.discardState(thisWidget)
+        end,
+        GenerateState = function(thisWidget: Types.Widget)
+            if thisWidget.state.key == nil then
+                thisWidget.state.key = Iris._widgetState(thisWidget, "key", "")
+            end
+        end,
+        UpdateState = function(thisWidget: Types.Widget)
+            local InputKeyCode = thisWidget.Instance :: Frame
+            local InputField: TextButton = InputKeyCode.InputField
+
+            InputField.Text = thisWidget.state.key.value
+        end,
+    } :: Types.WidgetClass)
 end
