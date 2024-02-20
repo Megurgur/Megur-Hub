@@ -1427,10 +1427,7 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
             InputField.MouseButton1Click:Connect(function()
                 task.wait()
                 local key = game:GetService("UserInputService").InputEnded:Wait()
-                if (key.KeyCode == Enum.KeyCode.Backspace) then
-                    key = nil
-                end
-                thisWidget.state.key:set(key == nil and nil or key.KeyCode)
+                thisWidget.state.key:set((key.KeyCode == Enum.KeyCode.Backspace) and nil or key.KeyCode)
             end)
 
             local frameHeight: number = Iris._config.TextSize + Iris._config.FramePadding.Y * 2
