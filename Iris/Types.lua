@@ -387,6 +387,7 @@ export type Iris = {
     TextColored: (arguments: WidgetArguments) -> Widget,
     SeparatorText: (arguments: WidgetArguments) -> Widget,
     InputText: (arguments: WidgetArguments, states: WidgetStates?) -> Widget,
+    InputKeyCode: (arguments: WidgetArguments, states: WidgetStates?) -> Widget,
 
     -- Basic Widget API
     Button: (arguments: WidgetArguments) -> Widget,
