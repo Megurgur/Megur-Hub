@@ -413,4 +413,4 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
     
 end)
 
-queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/Megurgur/Megur-Hub/main/universal.lua"))
+queue_on_teleport("loadstring((game:HttpGet('https://raw.githubusercontent.com/Megurgur/Megur-Hub/main/universal.lua')))()")
