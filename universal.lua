@@ -127,7 +127,7 @@ end)
 local rejoinPrompt = false
 
 Iris:Connect(function()
-    Iris.Window({"Chat Logger [Megurgur Hub]", false, false, false, true, false, false, false, false, true}, {size = Iris.State(Vector2.new(300,250)), isOpened = GuiStates.ChatLogger.Enabled})
+    Iris.Window({"Chat Logger [Megurgur Hub]", false, false, false, true, false, false, false, false, true}, {size = Iris.State(Vector2.new(400,400)), position = Iris.State(Vector2.new(0,0)), isOpened = GuiStates.ChatLogger.Enabled})
         local clearChatLogs = Iris.Button({"Clear Chat Logs"})
         if clearChatLogs.clicked() then
             ChatMessageLogs = {}
@@ -137,7 +137,7 @@ Iris:Connect(function()
         end
     Iris.End()
 
-    Iris.Window({"Control Panel [Megurgur Hub]", false, false, false, true, false, false, false, false, true}, {size = Iris.State(Vector2.new(350,500)), isOpened = ShowGui})
+    Iris.Window({"Control Panel [Megurgur Hub]", false, false, false, true, false, false, false, false, true}, {size = Iris.State(Vector2.new(350,500)), position = Iris.State(workspace.CurrentCamera.ViewportSize/2), isOpened = ShowGui})
         Iris.CollapsingHeader({ "Combat" })
         Iris.End()
         Iris.CollapsingHeader({ "Visual" })
