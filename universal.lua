@@ -137,7 +137,7 @@ Iris:Connect(function()
         end
     Iris.End()
 
-    Iris.Window({"Control Panel [Megurgur Hub]", false, false, false, true, false, false, false, false, true}, {size = Iris.State(Vector2.new(350,500)), position = Iris.State(Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2 + 350, workspace.CurrentCamera.ViewportSize.Y / 2 + 500)), isOpened = ShowGui})
+    Iris.Window({"Control Panel [Megurgur Hub]", false, false, false, true, false, false, false, false, true}, {size = Iris.State(Vector2.new(350,500)), position = Iris.State(Vector2.new(workspace.CurrentCamera.ViewportSize.X / 2 - 175, workspace.CurrentCamera.ViewportSize.Y / 2 - 250)), isOpened = ShowGui})
         Iris.CollapsingHeader({ "Combat" })
         Iris.End()
         Iris.CollapsingHeader({ "Visual" })
