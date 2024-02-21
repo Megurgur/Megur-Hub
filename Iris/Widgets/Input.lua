@@ -1426,6 +1426,7 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
 
             InputField.MouseButton1Click:Connect(function()
                 task.wait()
+                InputField.Text = "Press any key."
                 local key = game:GetService("UserInputService").InputEnded:Wait()
                 
                 if (key.KeyCode == Enum.KeyCode.Backspace) then
