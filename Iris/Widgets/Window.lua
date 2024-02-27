@@ -345,6 +345,7 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
             ["NoResize"] = 8,
             ["NoNav"] = 9,
             ["NoMenu"] = 10,
+            ["AutoScroll"] = 11,
         },
         Events = {
             ["closed"] = {
@@ -716,6 +717,9 @@ return function(Iris: Types.Internal, widgets: Types.WidgetUtility)
                 ChildContainer.ScrollBarThickness = 0
             else
                 ChildContainer.ScrollBarThickness = Iris._config.ScrollbarSize
+            end
+            if thisWidget.arguments.AutoScroll then
+                ChildContainer.CanvasPosition = Vector2.new(0, ChildContainer.AbsoluteCanvasSize.Y)
             end
             if thisWidget.arguments.NoTitleBar then
                 TitleBar.Visible = false
