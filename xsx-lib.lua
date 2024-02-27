@@ -3555,6 +3555,18 @@ function library:Init(key)
         return Components
     end
     --
+    function TabLibrary:Show()
+        screen.Enabled = true
+
+        return TabLibrary
+    end
+    --
+    function TabLibrary:Hide()
+        screen.Enabled = false
+
+        return TabLibrary
+    end
+    --
     function TabLibrary:Remove()
         screen:Destroy()
 
