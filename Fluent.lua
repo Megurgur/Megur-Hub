@@ -2976,7 +2976,7 @@ local aa = {
                 }
             })
             local l = ai('TextButton', {
-                Size = UDim2.fromOffset(0, 30),
+                Size = UDim2.fromOffset(30, 30),
                 Position = UDim2.new(1, -10, 0.5, 0),
                 AnchorPoint = Vector2.new(1, 0.5),
                 BackgroundTransparency = 0.9,
