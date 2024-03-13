@@ -2976,7 +2976,7 @@ local aa = {
                 }
             })
             local l = ai('TextButton', {
-                Size = UDim2.fromOffset(30, 30),
+                Size = UDim2.fromOffset(0, 30),
                 Position = UDim2.new(1, -10, 0.5, 0),
                 AnchorPoint = Vector2.new(1, 0.5),
                 BackgroundTransparency = 0.9,
@@ -3011,7 +3011,7 @@ local aa = {
                     if n == 'MouseLeft' or n == 'MouseRight' then
                         return n == 'MouseLeft' and af:IsMouseButtonPressed(Enum.UserInputType.MouseButton1) or n ==
                                    'MouseRight' and af:IsMouseButtonPressed(Enum.UserInputType.MouseButton2)
-                    else
+                    elseif h.Value ~= 'None' then
                         return af:IsKeyDown(Enum.KeyCode[h.Value])
                     end
                 else
@@ -3054,6 +3054,9 @@ local aa = {
                             p = 'MouseLeft'
                         elseif o.UserInputType == Enum.UserInputType.MouseButton2 then
                             p = 'MouseRight'
+                        end
+                        if o.KeyCode == Enum.KeyCode.Backspace then
+                            h.Value = 'None'
                         end
                         local s
                         s = af.InputEnded:Connect(function(t)
