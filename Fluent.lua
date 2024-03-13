@@ -3062,7 +3062,7 @@ local aa = {
                         s = af.InputEnded:Connect(function(t)
                             if (t.KeyCode.Name == p or p == 'MouseLeft' and t.UserInputType ==
                                 Enum.UserInputType.MouseButton1 or p == 'MouseRight' and t.UserInputType ==
-                                Enum.UserInputType.MouseButton2) then
+                                Enum.UserInputType.MouseButton2 or p == 'None' and t.KeyCode == Enum.KeyCode.Backspace) then
                                 i = false
                                 k.Text = p
                                 h.Value = p
