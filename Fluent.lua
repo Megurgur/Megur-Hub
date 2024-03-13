@@ -3055,10 +3055,8 @@ local aa = {
                         elseif o.UserInputType == Enum.UserInputType.MouseButton2 then
                             p = 'MouseRight'
                         end
-                        print(o.KeyCode)
                         if o.KeyCode == Enum.KeyCode.Backspace then
                             p = 'None'
-                            print(p)
                         end
                         local s
                         s = af.InputEnded:Connect(function(t)
