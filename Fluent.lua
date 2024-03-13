@@ -3056,13 +3056,13 @@ local aa = {
                             p = 'MouseRight'
                         end
                         if o.KeyCode == Enum.KeyCode.Backspace then
-                            h.Value = 'None'
+                            p = 'None'
                         end
                         local s
                         s = af.InputEnded:Connect(function(t)
-                            if t.KeyCode.Name == p or p == 'MouseLeft' and t.UserInputType ==
+                            if (t.KeyCode.Name == p or p == 'MouseLeft' and t.UserInputType ==
                                 Enum.UserInputType.MouseButton1 or p == 'MouseRight' and t.UserInputType ==
-                                Enum.UserInputType.MouseButton2 then
+                                Enum.UserInputType.MouseButton2) then
                                 i = false
                                 k.Text = p
                                 h.Value = p
